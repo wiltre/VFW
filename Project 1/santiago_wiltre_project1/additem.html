@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- This is the first Project of VFW for FSO -->
+<!-- FSO Course is Visual Framework 1303-->
+<!-- Developer name Wiltre Santiago-->
+<!-- App name is Items Wish list-->
+
+<html>
+	<head>		
+		<meta charset="utf-8"/>
+		<meta name="keywords" content="html5, item, retail, wish list"/>
+		<meta name="description" content="Project 1 HTML5 application"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="viewport" content="user-scalable=no, width=device-width"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<title>Item Wish List Input Form</title>
+	</head>
+	<body>
+		<form action="#" method="post">
+			<fieldset>
+				<legend> Input your item </legend>
+				<ul>
+					<li>
+						<label for="itemCategory"> Item Category </label>
+						<select id="itemCategory">
+							<optgroup label="Choose the item Category">
+								<option value="Clothing">Clothing</option>
+								<option value="Electronics">Electronics</option>
+								<option value="Transport">Transport</option>
+								<option value="Jewerly">Jewerly</option>
+								<option value="Other">Other</option>
+							</optgroup>
+						</select>
+					</li>
+					<li><label for="storeName">Store Name:</label><input type="text" id="storeName"/></li>
+					<li><label for="webSite">Store Website:</label><input type="url" id="webSite" placeholder="www.thestoreurl.com"/></li>
+					<li> Store Location
+						<ul>
+							<li><input type="radio" checked value="National" id="national" name="sLocation" /><label for="national">US and Puerto Rico</label></li>
+							<li><input type="radio" value="International" id="international" name="sLocation" /><label for="international">International</label></li>
+						</ul>
+					</li>
+					<li><input type="checkbox" value="Near Purchase" id="nearPurchase" /><label for="nearPurchase">Near Purchase</label></li>
+					<li><label for="priority">Item Priority:</label><input type="range" id="priority"/></li>
+					<li><label for="date">Planed purchase date:</label><input type="date" id="date"/></li>
+					<li><label for="itemsNotes">Extra notes about the item:</label><textarea id="itemsNotes"> </textarea></li>
+					<li><input type="hidden" value="true"/></li>
+				</ul>
+			</fieldset>
+			<input type="submit" value="Submit the item"/>
+		</form>
+	</body>
+</html>
