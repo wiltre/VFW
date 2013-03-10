@@ -11,4 +11,26 @@ h1 {
 	background:#CCC
 }
 
+p {
+	border: 1px solid gray;
+	color: red;
+	font-style: Italic;
+	font-family: Arial, "Times New Roman", serif;
+	font-weight: bold ;
+}
+
+h2 {
+	border: 1px solid gray;
+	background: black;
+	color: white;
+	font-style: Italic;
+	font-family: Arial, "Times New Roman", serif;
+	font-weight: bold ;
+}
+
+#additem {
+	border: 1px solid black;
+	background: black;
+	color: white;
+}
 
