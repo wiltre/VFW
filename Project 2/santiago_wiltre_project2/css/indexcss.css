@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* 
+Title: index.html Style
+By: Wiltre Santiago 
+For: VFW Project 2 
+*/
+
+h1 {
+	margin: 20px;
+	border: 0px solid black;
+	background:#CCC
+}
+
+
