@@ -5,32 +5,81 @@ By: Wiltre Santiago
 For: VFW Project 2 
 */
 
-h1 {
-	margin: 20px;
-	border: 0px solid black;
-	background:#CCC
+h1 {	
+	height : 68px;
+	left : 227px;
+	top : 0px;
+	width : 100%;
+	max-width: 480%;
+	color : #575756;
+	font-family : Arial,sans-serif;
+	font-size : 46px;
+	line-height : 68px;
+	margin-top : 0;
+	width : 60%;
+
 }
 
-p {
-	border: 1px solid gray;
-	color: red;
-	font-style: Italic;
-	font-family: Arial, "Times New Roman", serif;
-	font-weight: bold ;
-}
+#texteditarea
+{
+	height : 200px;
+	left : 28px;
+	overflow : hidden;
+	position : absolute;
+	top : 90px;
+	width : 437px;
+	color : #575756;
+	font-family : Arial,sans-serif;
+	font-size : 14px;
+	padding : 0;
 
-h2 {
-	border: 1px solid gray;
-	background: black;
-	color: white;
-	font-style: Italic;
-	font-family: Arial, "Times New Roman", serif;
-	font-weight: bold ;
+}
+#demoimage
+{
+	height : 200px;
+	left : 488px;
+	overflow : hidden;
+	position : relative;
+	top : 90px;
+	width : 253px;
+	background-color : #dadada;
+	border-color : #878787;
+	border-style : solid;
+	border-width : 1px;
+
+}
+h2
+{
+	height : 85px;
+	left : 29px;
+	overflow : hidden;
+	position : absolute;
+	top : 300px;
+	width : 417px;
+	color : #575756;
+	font-family : Arial,sans-serif;
+	font-size : 20px;
+	line-height : 30px;
+	margin-top : 0;
+	width : 50%;
+
 }
 
 #additem {
-	border: 1px solid black;
-	background: black;
-	color: white;
+	height : 60px;
+	left : 489px;
+	overflow : hidden;
+	position : absolute;
+	top : 330px;
+	width : 252px;
+	-khtml-border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius : 5px;
+	background-color : #575756;
+	border-radius : 5px;
+	color : #ffffff;
+	font-family : Arial,sans-serif;
+	font-size : 24px;
+	padding : 0;
 }
 
