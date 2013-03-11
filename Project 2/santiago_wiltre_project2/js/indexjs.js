@@ -6,4 +6,5 @@
  * This is the js for index.html
  */
 
-alert("Hello World");
+// alert("Hello World Index. ");
+

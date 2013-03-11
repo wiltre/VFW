@@ -6,4 +6,4 @@
  * This is the js for additem.html
  */
 
-alert("Hello World");
+// alert("Hello World Add Item");
