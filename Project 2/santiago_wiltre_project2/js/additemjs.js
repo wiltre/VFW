@@ -13,13 +13,31 @@
 window.addEventListener("DOMContentLoaded", function(){
 	
 	//getElementById Function
-	function element(x){
-		var getElement = document.getElementById(x);
+	function element(a){
+		var getElement = document.getElementById(a);
 		return getElement;		
 	}
 	
+	//Create the dropdown menu for the items category
+	function createCategory(){
+		var form = document.getElementsByTagName("form"); //this will be created as an array
+		var li = element("itemCategory");
+		var createSelect = document.createElement("select");
+		createSelect.setAttribute("id","itemCategory");
+		for(var i=0, j=itemCategories.length; i<j; i++){
+			var optionGroup = document.createElement("option");
+			var text = itemCategories[i];
+			optionGroup.setAttribute("value", text);
+			optionGroup.innerHTML = text;
+			createSelect.appendChild(optionGroup);
+		}
+		li.appendChild(createSelect);		
+	}
+		
 	//Global Variables
-	var itemCategory =["---Select a Category---","Clothing","Electronics","Transport","Jewerly","Other"];
+	var itemCategories =["---Select a Category---","Clothing","Electronics","Transport","Jewerly","Other"];
+	createCategory();
+	
 	
 	//Link Actions
 	var display = element("display")
