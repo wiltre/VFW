@@ -47,10 +47,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	function checkBoxValue(){
 		if(element("nearPurchase").checked){
 			nPurchase = "Yes";
-			console.log(nPurchase);
 		} else {
 			nPurchase = "No";
-			console.log(nPurchase);
 		}
 	}
 	
