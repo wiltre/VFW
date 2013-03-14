@@ -19,17 +19,17 @@
 			<fieldset>
 				<legend> Input your item </legend>
 				<ul>
-					<li id="itemCategory"><label for="item"> Item Category </label></li>
+					<li id="category"><label for="item"> Item Category: </label></li>
 					<li><label for="storeName">Store Name:</label><input type="text" id="storeName"/></li>
 					<li><label for="webSite">Store Website:</label><input type="url" id="webSite" placeholder="www.thestoreurl.com"/></li>
 					<li> Store Location
 						<ul>
-							<li><input type="radio" checked value="National" id="national" name="sLocation" /><label for="national">US and Puerto Rico</label></li>
+							<li><input type="radio" value="National" id="national" name="sLocation" /><label for="national">US and Puerto Rico</label></li>
 							<li><input type="radio" value="International" id="international" name="sLocation" /><label for="international">International</label></li>
 						</ul>
 					</li>
-					<li><input type="checkbox" value="Near Purchase" id="nearPurchase" /><label for="nearPurchase">Near Purchase</label></li>
-					<li><label for="priority">Item Priority:</label><input type="range" id="priority"/></li>
+					<li><input type="checkbox" id="nearPurchase" /><label for="nearPurchase">Near Purchase</label></li>
+					<li><label for="priority">Item Priority:</label><input type="range" min="1" max="10" id="priority"/></li>
 					<li><label for="date">Planed purchase date:</label><input type="date" id="date"/></li>
 					<li><label for="itemsNotes">Extra notes about the item:</label><textarea id="itemsNotes"> </textarea></li>
 					<li><input type="hidden" value="true"/></li>
