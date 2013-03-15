@@ -1,6 +1,6 @@
 /**
  * @author Wil
- * itle: additem.html Style
+ * Title: additem.html Style
  * By: Wiltre Santiago 
  * For: VFW Project 2
  * This is the js for additem.html
@@ -39,8 +39,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		for(var i=0; i<rbutton.length; i++){
 			if(rbutton[i].checked){
 				storeLocation = rbutton[i].value;	
-			}
-			
+			}			
 		}
 	}
 	
@@ -96,6 +95,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	function displayData(){
 		controls("on");
+		if(localStorage.length === 0){
+			alert("There are no items to display");
+		}
 		var createDiv = document.createElement("div");
 		createDiv.setAttribute("id", "items");
 		var newList = document.createElement("ul");
@@ -120,6 +122,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}	
 	
+	function resetData(){
+		if (localStorage.length === 0){
+			alert("There are no items to clear")
+			
+		}else{
+			localStorage.clear();
+			alert("Items are been deleted")
+			window.location.reload();
+			return false;			
+		}
+	}
 	
 	//Global Variables
 	var itemCategories =["---Select a Category---","Clothing","Electronics","Transport","Jewerly","Other","love nathie"];
@@ -130,11 +143,11 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	
 	//Link Actions
-	var display = element("display")
+	var display = element("display");
 	display.addEventListener("click",displayData);
-	/*var reset = element("clear")
-	reset.addEventListener("click", resetData);*/
-	var submit = element("submit")
-	submit.addEventListener("click", saveData)
+	var reset = element("clear");
+	reset.addEventListener("click", resetData);
+	var submit = element("submit");
+	submit.addEventListener("click", saveData);
 	
 });
