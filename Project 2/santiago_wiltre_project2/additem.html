@@ -15,7 +15,7 @@
 		<title>Item Wish List Input Form</title>
 	</head>
 	<body>
-		<form action="#" method="post">
+		<form action="#S" method="post" id="whishform">
 			<fieldset>
 				<legend> Input your item </legend>
 				<ul>
@@ -34,13 +34,12 @@
 					<li><label for="itemsNotes">Extra notes about the item:</label><textarea id="itemsNotes"> </textarea></li>
 					<li><input type="hidden" value="true"/></li>
 				</ul>
-			</fieldset>
-			<input type="button" value="Submit the item" id="submit"/>
-            <div id="belowNavigation">
-            	<a href="#" id="clear"> Clear Stored Data </a> 
-            	<a href="#" id="display"> Display Stored Data </a>
-            </div>
+			</fieldset>			      
 		</form>
+		<input type="button" value="Submit the item" id="submit"/>  
+		<a href="#" id="clear"> Clear Stored Data </a> 
+        <a href="#" id="display"> Display Stored Data </a>
+        <a href="additem.html" id="newItem" style="display:none"> Add new Item </a>
 		<script src="js/additemjs.js" type="text/javascript"></script>
 	</body>
 </html>

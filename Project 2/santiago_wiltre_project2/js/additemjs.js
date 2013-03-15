@@ -52,6 +52,27 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function controls(x){
+		switch(x){
+			case "on":
+				element("whishform").style.display = "none";
+				element("clear").style.display = "inline";
+				element("display").style.display = "none";
+				element("newItem").style.display = "inline";
+				element("submit").style.display = "none"
+				break;
+			case "off":
+				element("whishform").style.display = "none";
+				element("clear").style.display = "inline";
+				element("display").style.display = "inline";
+				element("newItem").style.display = "none";
+				element("items").style.display ="none";				
+				break;
+			default:
+				return false;
+		}
+	}
+	
 	function saveData(){
 		var id          = Math.floor(Math.random()*100001);
 		//Get all the values of the form  and store them 
@@ -72,7 +93,34 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert("INfo has been Saved!! :) ");
 			 				
 	};	
-		
+	
+	function displayData(){
+		controls("on");
+		var createDiv = document.createElement("div");
+		createDiv.setAttribute("id", "items");
+		var newList = document.createElement("ul");
+		createDiv.appendChild(newList);
+		document.body.appendChild(createDiv);
+		element("items").style.display ="display";
+		for (var i=0, len = localStorage.length; i < len; i++) {
+			var createLI = document.createElement("li");
+		  	newList.appendChild(createLI);
+		  	var index = localStorage.key(i);
+		  	var info = localStorage.getItem(index);
+		  	//Converting local storage from string to object
+		  	var obj = JSON.parse(info);
+		  	var createSubIndex = document.createElement("ui");
+		  	createLI.appendChild(createSubIndex);
+		  	for(var n in obj){
+		  		var makeSubli = document.createElement("li");
+		  		createSubIndex.appendChild(makeSubli);
+		  		var underInfo = obj[n] + " " + obj[n][1];
+		  		makeSubli.innerHTML = underInfo;	  	
+		  	}
+		}
+	}	
+	
+	
 	//Global Variables
 	var itemCategories =["---Select a Category---","Clothing","Electronics","Transport","Jewerly","Other","love nathie"];
 	var storeLocation
@@ -82,9 +130,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	
 	//Link Actions
-	/*var display = element("display")
+	var display = element("display")
 	display.addEventListener("click",displayData);
-	var reset = element("clear")
+	/*var reset = element("clear")
 	reset.addEventListener("click", resetData);*/
 	var submit = element("submit")
 	submit.addEventListener("click", saveData)
