@@ -8,3 +8,18 @@
 
 // alert("Hello World Index. ");
 
+window.addEventListener("DOMContentLoaded", function(){	
+	//getElementById Function
+	function element(a){
+		var getElement = document.getElementById(a);
+		return getElement;		
+	}
+	
+	//button function 
+	function launchApp(){
+			window.location="additem.html";
+		}
+	// calling buttn function	
+	var startApp = element("startApp");
+		startApp.addEventListener("click", launchApp);
+});

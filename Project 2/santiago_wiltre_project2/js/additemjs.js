@@ -134,6 +134,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	
+	
 	//Global Variables
 	var itemCategories =["---Select a Category---","Clothing","Electronics","Transport","Jewerly","Other","love nathie"];
 	var storeLocation
@@ -149,5 +151,5 @@ window.addEventListener("DOMContentLoaded", function(){
 	reset.addEventListener("click", resetData);
 	var submit = element("submit");
 	submit.addEventListener("click", saveData);
-	
+		
 });
