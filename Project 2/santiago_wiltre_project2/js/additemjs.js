@@ -97,6 +97,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		controls("on");
 		if(localStorage.length === 0){
 			alert("There are no items to display");
+			window.location="additem.html";
+			end;
 		}
 		var createDiv = document.createElement("div");
 		createDiv.setAttribute("id", "items");
