@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* 
+ Title: additem.html Style
+ By: Wiltre Santiago 
+ For: VFW Project 2 
+*/
+
+
+
+h1 {
+	margin: 20px;
+	border: 1px solid black;
+	color: red;
+	font-style: Italic;
+	font-family: Arial, "Times New Roman", serif;
+	font-weight: bold ;
+}
+
