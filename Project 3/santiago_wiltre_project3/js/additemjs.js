@@ -64,11 +64,11 @@ window.addEventListener("DOMContentLoaded", function(){
 				element("submit").style.display = "none"
 				break;
 			case "off":
-				element("whishform").style.display = "inline";
-				element("clear").style.display = "inline";
-				element("display").style.display = "inline";
+				element("whishform").style.display = "block";
+				element("clear").style.display = "inline-block";
+				element("display").style.display = "inline-block";
 				element("newItem").style.display = "none";
-				element("submit").style.display = "inline";
+				element("submit").style.display = "block";
 				element("items").style.display ="none";				
 				break;
 			default:
@@ -125,9 +125,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		  	for(var n in obj){
 		  		var makeSubli = document.createElement("li");
 		  		createSubIndex.appendChild(makeSubli);
-		  		var underInfo = obj[n][0] + " " + obj[n][1];
+		  		var underInfo = obj[n][0] + "&emsp;" + obj[n][1];
 		  		makeSubli.innerHTML = underInfo;
-		  		makeSubli.appendChild(linksLi);	  	
+		  		makeSubli.appendChild(linksLi);	
 		  	}
 		  	makeItemLinks(localStorage.key(i), linksLi) //This is the edit delete buttons
 		}
@@ -145,8 +145,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		linksLi.appendChild(editLink);
 		
 		//add line break 
-		var breakLine = document.createElement("br");
-		linksLi.appendChild(breakLine);
+		//var breakLine = document.createElement("br");
+		//linksLi.appendChild(breakLine);
 		
 		
 		//add delete item link
@@ -221,34 +221,54 @@ window.addEventListener("DOMContentLoaded", function(){
 		//elements to be checked
 		var getCategory = element("itemCategory");
 		var getStoreName = element("storeName");
-		var getWeb = element("website");
+		var getWeb = element("webSite");
 		
 		//Save error Messages
 		var errorMsg = [];
+		
+		//Clear error Meesages 
+		
 		//Validation
-		if (getCategory == "---Select a Category---"){
+		if (getCategory.value == "---Select a Category---"){
 			var catError = "Please select a category.";
-			getCategory.style.border = "1px solid red";
+			getCategory.style.border = "2px solid red";
+			getCategory.style.backgroundColor= "#ffbbbb";
 			errorMsg.push(catError);			
-		}	
+		}	else {
+			getCategory.style.backgroundColor= "white";
+			getCategory.style.border = "";
+		}
 		
 		//Store name Validation 
-		if (getStoreName === ""){
+		if (getStoreName.value === ""){
 			var snameError = "Please enter store name.";
-			getStoreName.style.border = "1px solid red";
+			getStoreName.style.border = "2px solid red";
+			getStoreName.style.backgroundColor= "#ffbbbb";
 			errorMsg.push(snameError);
+		}else{
+			getStoreName.style.backgroundColor= "white";
+			getStoreName.style.border = "";
+			
 		}
 		
 		// Website Validator
-		if (getWeb === "")	{
+		var webver = /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?(.aero|.asia|.biz|.cat|.com|.coop|.edu|.gov|.info|.int|.jobs|.mil|.mobi|.museum|.name|.net|.org|.pro|.tel|.travel)/;
+		if(!(webver.exec(getWeb.value))){
 			var webError = "Please enter a valid url";
-			getWeb.style.border = "1px solid red";
+			getWeb.style.border = "2px solid red";
+			getWeb.style.backgroundColor= "#ffbbbb";
 			errorMsg.push(webError);
+		}else{
+			getWeb.style.backgroundColor= "white";
+			getWeb.style.border = "";
 		}
 		
+						
 		// If there errors on the form display the them 
-		console.log(errorMsg);
-		console.log(errorMsg.length);
+		
+		// fixing the problem of adding LI if the user press the submit button twice.
+		var errorLI = element("errors");
+		console.log(errorLI.value)
 		if(errorMsg.length >= 1){
 			for (var i=0; i<errorMsg.length; i++) {
 			  var text = document.createElement("li");
@@ -257,7 +277,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			 }
 			
 		}
-		
+		//Calling the save data function
+				
 	}
 	
 	
