@@ -60,14 +60,17 @@ window.addEventListener("DOMContentLoaded", function(){
 				element("whishform").style.display = "none";
 				element("clear").style.display = "inline";
 				element("display").style.display = "none";
-				element("newItem").style.display = "inline";
+				element("newItem").style.display = "block";
 				element("submit").style.display = "none"
 				break;
 			case "off":
 				element("whishform").style.display = "block";
 				element("clear").style.display = "inline-block";
 				element("display").style.display = "inline-block";
-				element("newItem").style.display = "none";
+				element("dataControls").style.display="none";
+				element("dataControls").style.backgroundColor="transparent";
+				element("newItem").style.display = "block";
+				element("newItem").style.display = "block";
 				element("submit").style.display = "block";
 				element("items").style.display ="none";				
 				break;
@@ -77,8 +80,13 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	// Funation to save the data in to localstorage 
-	function saveData(){
-		var id          	= Math.floor(Math.random()*100001);
+	function saveData(key){ //if there is not key it will create one
+		if (!key) {
+			var id        	= Math.floor(Math.random()*100001);
+		}else{ //if there is a key just keep the key to edit the item
+			id = key
+		}
+		
 		//Get all the values of the form  and store them 
 		//Object properties contain array with the form label and value. 
 		radioValue();
@@ -95,11 +103,14 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Save data in local storage
 		localStorage.setItem(id, JSON.stringify(info));
 		alert("Info has been Saved!! :) ");
+		window.location="additem.html";
+		end;
 			 				
 	};	
 	
 	// Function to Display Data 
 	function displayData(){
+				
 		controls("on");
 		if(localStorage.length === 0){
 			alert("There are no items to display");
@@ -155,7 +166,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.key = key;
 		var deleteText = "Delete Items";
 		
-		//deleteLink.addEventListener("click", deleteItem);
+		//Here is the Delete Button 
+		deleteLink.addEventListener("click", deleteArticle);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 				
@@ -163,14 +175,25 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Function to edit the Local Sorage data 
 	function editItem (){
+		
+		//New Item Variable 
+		var getNewItem = element("newItem");
 		//Retrieve data from localStorage
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
-			
-			
+						
 		//Show the form 
 		controls("off");
 		
+		
+		//Control the new Item Button
+		getNewItem.style.display="block";
+		getNewItem.style.width="370px";
+		getNewItem.style.backgroundColor="#999999";
+		getNewItem.style.margin="0px";
+		getNewItem.style.marginTop="3px";
+		getNewItem.style.marginLeft="auto";
+		getNewItem.style.marginRight="auto";		
 		
 		//populate the form fields
 		element("itemCategory").value = item.category[1];
@@ -185,6 +208,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 			
 		}
+		
 		if (item.npurchase[1] == "Yes"){
 			element("nearPurchase").setAttribute("checked", "checked");
 		}
@@ -195,12 +219,23 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Remove the initial listener from the input "Save data" button
 		submit.removeEventListener("click", saveData )
 		// Change Submit Button Value
-		element("submit").value = "Edit new Data";
+		element("submit").value = "Save edited Data";
 		var editButton = element("submit");
 		//Save the key from Local Data
 		editButton.addEventListener("click", validateData);
 		editButton.key = this.key;
-			
+		div=element("items");
+		div.style.display("none");
+	}
+	
+	function deleteArticle(){
+		var ask = confirm("Pleas Confirm the Deletion of the item");
+		if (ask) {
+			localStorage.removeItem(this.key);
+			window.location.reload();
+		}else{
+			alert("Item was not Deleted.")
+		}
 	}
 	
 	
@@ -223,10 +258,19 @@ window.addEventListener("DOMContentLoaded", function(){
 		var getStoreName = element("storeName");
 		var getWeb = element("webSite");
 		
+		//Clear error Messages 
+		errors.innerHTML ="";
+		getCategory.style.backgroundColor= "white";
+		getCategory.style.border = "";
+		getStoreName.style.backgroundColor= "white";
+		getStoreName.style.border = "";
+		getWeb.style.backgroundColor= "white";
+		getWeb.style.border = ""; 
+		
 		//Save error Messages
 		var errorMsg = [];
 		
-		//Clear error Meesages 
+		
 		
 		//Validation
 		if (getCategory.value == "---Select a Category---"){
@@ -234,10 +278,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			getCategory.style.border = "2px solid red";
 			getCategory.style.backgroundColor= "#ffbbbb";
 			errorMsg.push(catError);			
-		}	else {
-			getCategory.style.backgroundColor= "white";
-			getCategory.style.border = "";
-		}
+		}	
 		
 		//Store name Validation 
 		if (getStoreName.value === ""){
@@ -245,10 +286,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			getStoreName.style.border = "2px solid red";
 			getStoreName.style.backgroundColor= "#ffbbbb";
 			errorMsg.push(snameError);
-		}else{
-			getStoreName.style.backgroundColor= "white";
-			getStoreName.style.border = "";
-			
 		}
 		
 		// Website Validator
@@ -258,28 +295,31 @@ window.addEventListener("DOMContentLoaded", function(){
 			getWeb.style.border = "2px solid red";
 			getWeb.style.backgroundColor= "#ffbbbb";
 			errorMsg.push(webError);
-		}else{
-			getWeb.style.backgroundColor= "white";
-			getWeb.style.border = "";
 		}
 		
 						
-		// If there errors on the form display the them 
 		
-		// fixing the problem of adding LI if the user press the submit button twice.
+		
+		// Displaying the error messages
 		var errorLI = element("errors");
-		console.log(errorLI.value)
 		if(errorMsg.length >= 1){
 			for (var i=0; i<errorMsg.length; i++) {
 			  var text = document.createElement("li");
 			  text.innerHTML = errorMsg[i];
 			  totalErrors.appendChild(text);
 			 }
+		} else {
+			saveData(this.key);
 			
 		}
 		//Calling the save data function
 				
 	}
+	
+	//Add new Item button function 
+	function newArticle(){
+			window.location="additem.html";
+		}
 	
 	
 	//Global Variables
@@ -298,6 +338,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	reset.addEventListener("click", resetData);
 	var submit = element("submit");
 	submit.addEventListener("click", validateData);
+	// calling the add new item button function	
+	var startApp = element("newItem");
+		startApp.addEventListener("click", newArticle);
+	
 		
 });
 
