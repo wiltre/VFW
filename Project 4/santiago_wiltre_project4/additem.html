@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- This is the first Project of VFW for FSO -->
+<!-- FSO Course is Visual Framework 1303-->
+<!-- Developer name Wiltre Santiago-->
+<!-- App name is Items Wish list-->
+
+<html>
+	<head>		
+		<meta charset="utf-8"/>
+		<meta name="keywords" content="html5, item, retail, wish list"/>
+		<meta name="description" content="Project 2 HTML5 application"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="viewport" content="user-scalable=no, width=device-width"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<title>Item Wish List Input Form</title>
+		<link href="css/cssreset.css" rel="stylesheet"/>
+		<link href="css/mainformcss.css" rel="stylesheet" />
+	</head>
+	
+	<body>	
+		<div id="formWrap">	
+		    <form action="#" method="post" id="whishform">
+				<fieldset id="field">
+					<h1>Input your item </h1>
+					<ul>
+						<li id="category"><label id="litem" for="item"> Item Category: </label></li>
+						<li><label id="lstore" for="storeName">Store Name:</label><input type="text" id="storeName"/></li>
+						<li><label id="lweb" for="webSite">Store Website:</label><input type="text" id="webSite" placeholder="       www.example.com  " /></li>
+						<li> Store Location
+							<ul>
+								<li><input type="radio" value="National" id="national" name="sLocation" /><label for="national">US and Puerto Rico</label></li>
+								<li><input type="radio" value="International" id="international" name="sLocation" /><label for="international">International</label></li>
+							</ul>
+						</li>
+						<li><input type="checkbox" id="nearPurchase" /><label for="nearPurchase">Near Purchase</label></li>
+						<li><label for="priority">Item Priority:</label><input type="range" min="1" max="10" id="priority"/></li>
+						<li><label for="date">Planed purchase date:</label><input type="date" id="date"/></li>
+						<li><label for="itemsNotes">Extra notes about the item:</label><input type="text" id="itemsNotes"> </</li>
+						<li id="hidden"><input type="hidden" value="true"/></li>
+					</ul>
+					<ul id="errors"> </ul>
+				</fieldset>
+				<input type="button" value="Submit the item" id="submit"/>
+				<div id="dataControls">  
+					<a href="#" id="display"> Display Stored Data </a>
+					<a href="#" id="clear"> Clear Stored Data </a>					
+			    </div> 			    
+			</form>
+			
+		</div>
+		<input type="button" value="Add new Item" id="newItem" style="display:none"/>			    
+        <script src="js/additemjs.js" type="text/javascript"></script>
+	</body>
+</html>
