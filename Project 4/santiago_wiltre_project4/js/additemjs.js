@@ -113,9 +113,8 @@ window.addEventListener("DOMContentLoaded", function(){
 				
 		controls("on");
 		if(localStorage.length === 0){
-			alert("There are no items to display");
-			window.location="additem.html";
-			end;
+			alert("There are no items to display  the form will be populated with default data");
+			loadDefaultData()
 		}
 		var createDiv = document.createElement("div");
 		createDiv.setAttribute("id", "items");
@@ -143,6 +142,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		  	makeItemLinks(localStorage.key(i), linksLi) //This is the edit delete buttons
 		}
 	}	
+	
+	//Function to load the default Data file 
+	function loadDefaultData(){
+		//This is where the json object is populating
+		for (var n in json){
+			var id =  Math.floor(Math.random()*100001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+		
+		
+	}
 	
 	//function to display the edit and delete links 
 	function makeItemLinks(key, linksLi){
