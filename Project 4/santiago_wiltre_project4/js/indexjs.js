@@ -2,7 +2,7 @@
  * @author Wil
  * itle: additem.html Style
  * By: Wiltre Santiago 
- * For: VFW Project 3
+ * For: VFW Project 4
  * This is the js for index.html
  */
 
