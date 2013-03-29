@@ -61,7 +61,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				element("clear").style.display = "inline";
 				element("display").style.display = "none";
 				element("newItem").style.display = "block";
-				element("submit").style.display = "none"
+				element("submit").style.display = "none";
 				break;
 			case "off":
 				element("whishform").style.display = "block";
