@@ -132,6 +132,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		  	var obj = JSON.parse(info);
 		  	var createSubIndex = document.createElement("ui");
 		  	createLI.appendChild(createSubIndex);
+		  	obtainImage(obj.category[1],createSubIndex);
 		  	for(var n in obj){
 		  		var makeSubli = document.createElement("li");
 		  		createSubIndex.appendChild(makeSubli);
@@ -142,6 +143,15 @@ window.addEventListener("DOMContentLoaded", function(){
 		  	makeItemLinks(localStorage.key(i), linksLi) //This is the edit delete buttons
 		}
 	}	
+	//Function to obtain the images for the proper category  to display
+	function obtainImage(imgCat,createSubIndex){
+		var imageLi = document.createElement("li");
+		createSubIndex.appendChild(imageLi);
+		var catImg = document.createElement("img");
+		var setSrc = catImg.setAttribute("src", "images/" + imgCat + ".png");
+		imageLi.appendChild(catImg);
+		
+	}
 	
 	//Function to load the default Data file 
 	function loadDefaultData(){
